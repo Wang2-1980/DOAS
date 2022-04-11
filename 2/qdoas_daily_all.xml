@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qdoas>
+  <paths>
+    <!-- upto 10 paths can be specified (index 0 to 9). Any file or directory name in the  -->
+    <!-- raw_spectra tree that begins with %? (where ? is a single digit) is expanded with -->
+    <!-- the correponding path.                                                            -->
+
+  </paths>
+  <sites>
+    <site name="Beijing_003" abbrev="" long="116.320" lat="39.950" alt="100.000" />
+    <site name="DY" abbrev="" long="118.980" lat="37.760" alt="0.000" />
+    <site name="SUST" abbrev="" long="113.993" lat="22.597" alt="20.000" />
+  </sites>
+  <symbols>
+    <symbol name="BrO" descr="" />
+    <symbol name="glyoxal" descr="" />
+    <symbol name="H2O" descr="" />
+    <symbol name="HCHO" descr="" />
+    <symbol name="HONO" descr="" />
+    <symbol name="NO2" descr="" />
+    <symbol name="NO2_298K" descr="" />
+    <symbol name="NO2_first" descr="" />
+    <symbol name="NO2_second" descr="" />
+    <symbol name="NO2a" descr="" />
+    <symbol name="O3" descr="" />
+    <symbol name="O3_223K" descr="" />
+    <symbol name="O3_243K" descr="" />
+    <symbol name="O3_293k" descr="" />
+    <symbol name="O3a" descr="" />
+    <symbol name="O3a_SDY_Pukite1" descr="" />
+    <symbol name="O3a_SDY_Pukite2" descr="" />
+    <symbol name="O3D" descr="" />
+    <symbol name="O4" descr="" />
+    <symbol name="Ring" descr="" />
+    <symbol name="Ring_additional" descr="" />
+    <symbol name="ringa" descr="" />
+    <symbol name="SO2" descr="" />
+  </symbols>
+  <project name="SUST" disable="false">
+    <display spectra="true" data="true" calib="true" fits="true">
+      <field name="specno" />
+      <field name="date_time" />
+      <field name="date" />
+      <field name="time" />
+      <field name="year" />
+      <field name="julian" />
+      <field name="jdfrac" />
+      <field name="tifrac" />
+      <field name="sza" />
+      <field name="chi" />
+      <field name="rms" />
+      <field name="azim" />
+      <field name="view_elevation" />
+      <field name="starttime" />
+    </display>
+    <selection>
+      <sza min="0.000" max="180.000" delta="0.000" />
+      <elevation min="0.000" max="0.000" tol="0.000" />
+      <reference angle="90.000" tol="10.000" />
+      <record min="0" max="0" />
+      <cloud min="0.000" max="1.000" />
+      <geolocation selected="none">
+        <circle radius="0.000" long="0.000" lat="0.000" />
+        <rectangle west="0.000" east="0.000" south="0.000" north="0.000" />
+        <sites radius="0.000" />
+      </geolocation>
+    </selection>
+    <analysis method="ODF" fit="none" unit="nm" interpolation="spline" gap="10" converge="0.0001" max_iterations="0" spike_tolerance="999.9" >
+      <!-- method        : ODF ML+SVD -->
+      <!-- fit           : none instr -->
+      <!-- unit          : pixel nm -->
+      <!-- interpolation : linear spline -->
+    </analysis>
+    <lowpass_filter selected="none">
+      <kaiser cutoff="0.000000" tolerance="0.000000" passband="0.000000" iterations="1" cal="false" fit="false" div="false" />
+      <boxcar width="1" iterations="1" cal="false" fit="false" div="false" />
+      <gaussian fwhm="1.000000" iterations="1" cal="false" fit="false" div="false" />
+      <triangular width="1" iterations="1" cal="false" fit="false" div="false" />
+      <savitzky_golay width="1" order="2" iterations="1" cal="false" fit="false" div="false" />
+      <binomial width="1" iterations="1" cal="false" fit="false" div="false" />
+    </lowpass_filter>
+    <highpass_filter selected="none">
+      <kaiser cutoff="0.000000" tolerance="0.000000" passband="0.000000" iterations="1" cal="false" fit="false" div="false" />
+      <boxcar width="1" iterations="1" cal="false" fit="false" div="false" />
+      <gaussian fwhm="1.000000" iterations="1" cal="false" fit="false" div="false" />
+      <triangular width="1" iterations="1" cal="false" fit="false" div="false" />
+      <savitzky_golay width="1" order="2" iterations="1" cal="false" fit="false" div="false" />
+      <binomial width="1" iterations="1" cal="false" fit="false" div="false" />
+    </highpass_filter>
+    <calibration ref="D:/softwares/QDOAS/1/CINDI-2_xs/sao2010_solref_air.dat" method="ODF">
+      <line shape="gauss" lorentzorder="1" slfFile="" />
+      <display spectra="true" fits="true" residual="true" shiftsfp="true" />
+      <polynomial shift="4" sfp="4" />
+      <window min="307.0" max="375.0" intervals="10" custom_windows="307.00-318.00,318.00-326.00,326.00-334.00,334.00-342.00,342.00-350.00,350.00-350.00,358.00-364.00,366.00-370.00,374.00-375.00,390.00-375.00," division="contiguous" size="5.00" />
+      <preshift calculate="false" min="-3.0" max="3.0" />
+      <cross_sections>
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="interp" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/ring_conv.xs" amffile="" />
+        <cross_section sym="O3_293k" ortho="Differential XS" subtract="" subtract_flag="false" cstype="interp" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/o3_293K_SDY_air_conv.xs" amffile="" />
+        <cross_section sym="O3" ortho="Differential XS" subtract="" subtract_flag="false" cstype="interp" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/o3_223K_SDY_air_conv.xs" amffile="" />
+      </cross_sections>
+      <sfps>
+        <sfp index="1" fit="true" init="0.500" delta="0.001" fstr="false" estr="false" />
+        <sfp index="2" fit="false" init="0.500" delta="0.001" fstr="false" estr="false" />
+        <sfp index="3" fit="false" init="0.500" delta="0.001" fstr="false" estr="false" />
+      </sfps>
+      <linear xpoly="3" xbase="2" xfit="false" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="1st" shstr="false" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Ref" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+        <gap min="331.40" max="331.70" />
+      </gaps>
+      <outputs>
+        <output sym="Ring" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3_293k" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </calibration>
+    <undersampling ref="" method="file" shift="0.000000" />
+    <instrumental format="mfcstd" site="SUST">
+      <ascii size="0" format="line" zen="false" azi="false" ele="false" date="false" time="false" lambda="false" straylight="false" lambda_min="0" lambda_max="0" calib="" transmission="" />
+      <logger type="all" azi="false" calib="" instr="" />
+      <acton type="old" calib="" instr="" />
+      <pdaegg type="all" azi="false" calib="" instr="" />
+      <pdaeggold type="all" azi="false" calib="" instr="" />
+      <pdaeggold type="all" azi="false" calib="" instr="" />
+      <ccdohp96 calib="" instr="" ipv="" dnl="" />
+      <ccdha94 calib="" instr="" ipv="" dnl="" />
+      <saozvis type="zenithal" calib="" instr="" />
+      <saozefm straylight="false" lambda_min="0" lambda_max="0"      calib="" instr="" />
+      <mfc size="0" first="0" revert="false" auto="false" omask="0" imask="0" dmask="0" smask="0" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" dark="" offset="" />
+      <mfcbira size="0" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <mfcstd size="2048" revert="false" straylight="false" date="MM/DD/YYYY" lambda_min="0" lambda_max="0" calib="D:/softwares/QDOAS/2/SN1804011U1/Hg_U0008499_calibrated_solar.clb" instr="" dark="" offset="" />
+      <rasas straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <pdasieasoe straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <ccdeev size="0" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" image="" stray="" dnl=""  type="all" />
+      <gdpnetcdf type="1a" pixel="all" calib="" instr="" />
+      <gdpbin type="1a" pixel="all" calib="" instr="" />
+      <sciapds channel="1" sunref="" calib="" instr="" dnl="" />
+      <uoft straylight="false" lambda_min="0" lambda_max="0"      calib="" instr="" />
+      <noaa straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <omi type="uv1" min="0.0" max="0.0" ave="false" trackSelection="" pixelQF_rejectionFlag="false" pixelQF_maxGaps="5" pixelQF_mask="0" xTrackMode="IGNORE" calib="" instr="" />
+      <tropomi band="BAND1" reference_orbit_dir="" trackSelection="" calib="" instr="" />
+      <gems trackSelection="" calib="" instr="" />
+      <apex trackSelection="" calib="" instr="" />
+      <gome2 type="1a" calib="" instr="" />
+      <mkzy straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <biraairborne size="2048" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <biramobile size="2048" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <oceanoptics size="0" straylight="false" lambda_min="0" lambda_max="0" calib="" instr="" />
+      <frm4doas size="0" straylight="false" lambda_min="0" lambda_max="0" type="all" calib="" instr="" />
+    </instrumental>
+    <slit ref="D:/softwares/QDOAS/1/CINDI-2_xs/sao2010_solref_air.dat" fwhmcor="false">
+      <slit_func type="gaussian">
+        <file file="G:/QKY_Qdoas/used_instrument/slf.slf" wveDptFlag="false" file2="" />
+        <gaussian fwhm="0.536" wveDptFlag="false" file="" />
+        <lorentz width="0.000" order="1" wveDptFlag="false" file="" />
+        <voigt fwhmleft="0.000" fwhmright="0.000" glrleft="0.000" glrright="0.000" wveDptFlag="false" file="" file2="" />
+        <error fwhm="0.000" width="0.000" wveDptFlag="false" file="" file2="" />
+        <agauss fwhm="0.000" asym="0.000" wveDptFlag="false" file="" file2="" />
+        <supergauss fwhm="0.000" expTerm="0.000" asym="0.000" wveDptFlag="false" file="" file2="" file3="" />
+        <boxcarapod resolution="0.000" phase="0.000" />
+        <nbsapod resolution="0.000" phase="0.000" />
+      </slit_func>
+    </slit>
+    <output path="D:/softwares/QDOAS/OUTPUT/output.txt" anlys="true" calib="false" ref="true" conf="false" dirs="true" file="true" success="false" flux="320;340;330;360" cic=" " bandWidth="1.000000" swathName="QDOAS Results" fileFormat=".ASC">
+      <field name="specno" />
+      <field name="date_time" />
+      <field name="date" />
+      <field name="time" />
+      <field name="year" />
+      <field name="julian" />
+      <field name="jdfrac" />
+      <field name="tifrac" />
+      <field name="scans" />
+      <field name="tint" />
+      <field name="sza" />
+      <field name="chi" />
+      <field name="rms" />
+      <field name="azim" />
+      <field name="refnumber" />
+      <field name="longit" />
+      <field name="latit" />
+      <field name="view_elevation" />
+      <field name="view_azimuth" />
+    </output>
+    <export path="" titles="true" dir="true" >
+    </export>
+    <analysis_window name="O3_320_340" disable="false" kurucz="ref" refsel="auto" min="320.000" max="340.000" resol_fwhm="0.500" lambda0="330.000" >
+      <display spectrum="true" poly="true" fits="true" residual="true" predef="true" ratio="true" />
+      <files refone=""
+             reftwo=""
+             residual=""
+szacenter="0.000" szadelta="0.000" scanmode="after" minlon="0.000" maxlon="0.000" minlat="0.000" maxlat="0.000" refns="1" cloudfmin="0.000" cloudfmax="1.000" 
+              maxdoasrefmode="scan" 
+             east="true" center="true" west="true" backscan="true" />
+      <cross_sections>
+        <cross_section sym="O3" ortho="O3_293k" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/o3_223K_SDY_air.xs" amffile="" />
+        <cross_section sym="O3_293k" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/o3_293K_SDY_air.xs" amffile="" />
+        <cross_section sym="NO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/no2_298K_vanDaele.xs" amffile="" />
+        <cross_section sym="HCHO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/hcho_297K_Meller.xs" amffile="" />
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="ring" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/Ring_QDOAScalc_HighResSAO2010_Norm.xs" amffile="" />
+        <cross_section sym="ringa" ortho="Ring" subtract="" subtract_flag="false" cstype="interp" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/ringa_conv.txt" amffile="" />
+        <cross_section sym="O3a_SDY_Pukite2" ortho="O3_293k" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/o3a_SDY_Pukite2_320-340nm.xs" amffile="" />
+        <cross_section sym="O4" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/o4_Thalman_Volkamer_293K_air_corrected.xs" amffile="" />
+        <cross_section sym="SO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/SO2_VandaeleHermansFally2009_298K.xs" amffile="" />
+        <cross_section sym="O3a_SDY_Pukite1" ortho="O3_293k" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/softwares/QDOAS/1/CINDI-2_xs/o3a_SDY_Pukite1_320-340nm.xs" amffile="" />
+      </cross_sections>
+      <linear xpoly="5" xbase="2" xfit="false" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <nonlinear solfit="false" solinit="0.000" soldelt="0.001" solfstr="false" solestr="false"
+                 o0fit="true" o0init="0.000" o0delt="0.001" o0fstr="true" o0estr="false"
+                 o1fit="true" o1init="0.000" o1delt="0.001" o1fstr="true" o1estr="false"
+                 o2fit="false" o2init="0.000" o2delt="0.001" o2fstr="false" o2estr="false"
+                 comfit="false" cominit="0.000" comdelt="0.001" comstr="false" comestr="false"
+                 u1fit="false" u1init="0.000" u1delt="0.001" u1str="false" u1estr="false"
+                 u2fit="false" u2init="0.000" u2delt="0.001" u2str="false" u2estr="false"
+                 resolfit="false" resolinit="0.000" resoldelt="0.001" resolstr="false" resolestr="false"
+                 comfile=""
+                 u1file=""
+                 u2file=""
+                 ramfile="" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="none" shstr="false" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Spectrum" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+        <gap min="331.40" max="331.70" />
+      </gaps>
+      <outputs>
+        <output sym="O3" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3_293k" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="HCHO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="Ring" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="ringa" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3a_SDY_Pukite2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O4" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="SO2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3a_SDY_Pukite1" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </analysis_window>
+    <analysis_window name="HCHO_322.5-358" disable="true" kurucz="ref" refsel="auto" min="322.500" max="358.000" resol_fwhm="0.500" lambda0="340.250" >
+      <display spectrum="true" poly="true" fits="true" residual="true" predef="true" ratio="true" />
+      <files refone=""
+             reftwo=""
+             residual=""
+szacenter="0.000" szadelta="0.000" scanmode="interpolate" minlon="0.000" maxlon="0.000" minlat="0.000" maxlat="0.000" refns="1" cloudfmin="0.000" cloudfmax="1.000" 
+              maxdoasrefmode="scan" 
+             east="true" center="true" west="true" backscan="true" />
+      <cross_sections>
+        <cross_section sym="HCHO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/hcho_297K_Meller.xs" amffile="" />
+        <cross_section sym="NO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/no2_298K_vanDaele.xs" amffile="" />
+        <cross_section sym="O3" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/o3_223K_SDY_air.xs" amffile="" />
+        <cross_section sym="O3a" ortho="O3" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/o3a_243K_SDY_air.xs" amffile="" />
+        <cross_section sym="O4" ortho="None" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/o4_Thalman_Volkamer_293K_air_corrected.xs" amffile="" />
+        <cross_section sym="BrO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/bro_223K_Fleischmann.xs" amffile="" />
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="ring" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="D:/pythonProject2/qdoas_auto/QDOAS/CINDI-2_xs/Ring_QDOAScalc_HighResSAO2010_Norm.xs" amffile="" />
+      </cross_sections>
+      <linear xpoly="5" xbase="2" xfit="true" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <nonlinear solfit="false" solinit="0.000" soldelt="0.001" solfstr="false" solestr="false"
+                 o0fit="true" o0init="0.000" o0delt="0.001" o0fstr="true" o0estr="false"
+                 o1fit="true" o1init="0.000" o1delt="0.001" o1fstr="true" o1estr="false"
+                 o2fit="false" o2init="0.000" o2delt="0.001" o2fstr="false" o2estr="false"
+                 comfit="false" cominit="0.000" comdelt="0.001" comstr="false" comestr="false"
+                 u1fit="false" u1init="0.000" u1delt="0.001" u1str="false" u1estr="false"
+                 u2fit="false" u2init="0.000" u2delt="0.001" u2str="false" u2estr="false"
+                 resolfit="false" resolinit="0.000" resoldelt="0.001" resolstr="false" resolestr="false"
+                 comfile=""
+                 u1file=""
+                 u2file=""
+                 ramfile="" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Spectrum" />
+        </shift_stretch>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="HCHO" />
+          <symbol name="NO2" />
+          <symbol name="O3" />
+          <symbol name="O3a" />
+          <symbol name="O4" />
+          <symbol name="BrO" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+        <gap min="331.40" max="331.70" />
+      </gaps>
+      <outputs>
+        <output sym="HCHO" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3a" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O4" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="BrO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="Ring" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </analysis_window>
+    <analysis_window name="HONO_335-373" disable="true" kurucz="ref" refsel="auto" min="335.000" max="373.000" resol_fwhm="0.500" lambda0="354.000" >
+      <display spectrum="true" poly="true" fits="true" residual="true" predef="true" ratio="true" />
+      <files refone=""
+             reftwo=""
+             residual=""
+szacenter="0.000" szadelta="0.000" scanmode="interpolate" minlon="0.000" maxlon="0.000" minlat="0.000" maxlat="0.000" refns="1" cloudfmin="0.000" cloudfmax="1.000" 
+              maxdoasrefmode="scan" 
+             east="true" center="true" west="true" backscan="true" />
+      <cross_sections>
+        <cross_section sym="HONO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/hono_296K_stutz.xs" amffile="" />
+        <cross_section sym="NO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/no2_298K_vanDaele.xs" amffile="" />
+        <cross_section sym="NO2a" ortho="NO2" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/no2a_220p298K_vanDaele_UV.xs" amffile="" />
+        <cross_section sym="NO2_first" ortho="NO2" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/NO2_first_order.xs" amffile="" />
+        <cross_section sym="NO2_second" ortho="NO2" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/NO2_second_order.xs" amffile="" />
+        <cross_section sym="O4" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o4_thalman_volkamer_293K_inAir.xs" amffile="" />
+        <cross_section sym="O3" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3_223K_Bogumil_deconv.xs" amffile="" />
+        <cross_section sym="O3_243K" ortho="O3" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3_243K_Bogumil_deconv.xs" amffile="" />
+        <cross_section sym="HCHO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/hcho_297K_Meller.xs" amffile="" />
+        <cross_section sym="BrO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/bro_223K_Fleischmann.xs" amffile="" />
+        <cross_section sym="H2O" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/h2o_polyanski_air.xs" amffile="" />
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="ring" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/Ring_QDOAScalc_HighResSAO2010_Norm.xs" amffile="" />
+        <cross_section sym="ringa" ortho="Ring" subtract="" subtract_flag="false" cstype="interp" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeringa_conv.txt" amffile="" />
+      </cross_sections>
+      <linear xpoly="5" xbase="2" xfit="true" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <nonlinear solfit="false" solinit="0.000" soldelt="0.001" solfstr="false" solestr="false"
+                 o0fit="true" o0init="0.000" o0delt="0.001" o0fstr="true" o0estr="false"
+                 o1fit="true" o1init="0.000" o1delt="0.001" o1fstr="true" o1estr="false"
+                 o2fit="false" o2init="0.000" o2delt="0.001" o2fstr="false" o2estr="false"
+                 comfit="false" cominit="0.000" comdelt="0.001" comstr="false" comestr="false"
+                 u1fit="false" u1init="0.000" u1delt="0.001" u1str="false" u1estr="false"
+                 u2fit="false" u2init="0.000" u2delt="0.001" u2str="false" u2estr="false"
+                 resolfit="false" resolinit="0.000" resoldelt="0.001" resolstr="false" resolestr="false"
+                 comfile=""
+                 u1file=""
+                 u2file=""
+                 ramfile="" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Spectrum" />
+        </shift_stretch>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="HONO" />
+          <symbol name="NO2" />
+          <symbol name="NO2a" />
+          <symbol name="NO2_first" />
+          <symbol name="NO2_second" />
+          <symbol name="O4" />
+          <symbol name="O3" />
+          <symbol name="O3_243K" />
+          <symbol name="HCHO" />
+          <symbol name="BrO" />
+          <symbol name="H2O" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+      </gaps>
+      <outputs>
+        <output sym="HONO" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2a" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2_first" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2_second" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O4" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3_243K" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="HCHO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="BrO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="H2O" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="Ring" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="ringa" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </analysis_window>
+    <analysis_window name="O4_NO2_338-370" disable="true" kurucz="ref" refsel="auto" min="338.000" max="370.000" resol_fwhm="0.500" lambda0="354.000" >
+      <display spectrum="true" poly="true" fits="true" residual="true" predef="true" ratio="true" />
+      <files refone=""
+             reftwo=""
+             residual=""
+szacenter="0.000" szadelta="0.000" scanmode="after" minlon="0.000" maxlon="0.000" minlat="0.000" maxlat="0.000" refns="1" cloudfmin="0.000" cloudfmax="1.000" 
+              maxdoasrefmode="scan" 
+             east="true" center="true" west="true" backscan="true" />
+      <cross_sections>
+        <cross_section sym="NO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/no2_298K_vanDaele.xs" amffile="" />
+        <cross_section sym="NO2a" ortho="NO2" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/no2a_220p298K_vanDaele_UV.xs" amffile="" />
+        <cross_section sym="O3" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3_223K_SDY_air.xs" amffile="" />
+        <cross_section sym="O3a" ortho="O3" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3a_243K_SDY_air.xs" amffile="" />
+        <cross_section sym="O4" ortho="None" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o4_thalman_volkamer_293K_inAir.xs" amffile="" />
+        <cross_section sym="HCHO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/hcho_297K_Meller.xs" amffile="" />
+        <cross_section sym="BrO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/bro_223K_Fleischmann.xs" amffile="" />
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="ring" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/Ring_QDOAScalc_HighResSAO2010_Norm.xs" amffile="" />
+      </cross_sections>
+      <linear xpoly="5" xbase="2" xfit="true" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <nonlinear solfit="false" solinit="0.000" soldelt="0.001" solfstr="false" solestr="false"
+                 o0fit="true" o0init="0.000" o0delt="0.001" o0fstr="true" o0estr="false"
+                 o1fit="true" o1init="0.000" o1delt="0.001" o1fstr="true" o1estr="false"
+                 o2fit="false" o2init="0.000" o2delt="0.001" o2fstr="false" o2estr="false"
+                 comfit="false" cominit="0.000" comdelt="0.001" comstr="false" comestr="false"
+                 u1fit="false" u1init="0.000" u1delt="0.001" u1str="false" u1estr="false"
+                 u2fit="false" u2init="0.000" u2delt="0.001" u2str="false" u2estr="false"
+                 resolfit="false" resolinit="0.000" resoldelt="0.001" resolstr="false" resolestr="false"
+                 comfile=""
+                 u1file=""
+                 u2file=""
+                 ramfile="" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Spectrum" />
+        </shift_stretch>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="NO2" />
+          <symbol name="NO2a" />
+          <symbol name="O3" />
+          <symbol name="O3a" />
+          <symbol name="O4" />
+          <symbol name="HCHO" />
+          <symbol name="BrO" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+      </gaps>
+      <outputs>
+        <output sym="NO2" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2a" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3a" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O4" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="HCHO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="BrO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="Ring" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </analysis_window>
+    <analysis_window name="SO2_307.8-330" disable="true" kurucz="ref" refsel="auto" min="307.800" max="330.000" resol_fwhm="0.500" lambda0="318.900" >
+      <display spectrum="true" poly="true" fits="true" residual="true" predef="true" ratio="true" />
+      <files refone=""
+             reftwo=""
+             residual=""
+szacenter="0.000" szadelta="0.000" scanmode="interpolate" minlon="0.000" maxlon="0.000" minlat="0.000" maxlat="0.000" refns="1" cloudfmin="0.000" cloudfmax="1.000" 
+              maxdoasrefmode="scan" 
+             east="true" center="true" west="true" backscan="true" />
+      <cross_sections>
+        <cross_section sym="SO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/SO2_VandaeleHermansFally2009_298K.xs" amffile="" />
+        <cross_section sym="NO2" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+17" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/no2_298K_vanDaele.xs" amffile="" />
+        <cross_section sym="O3" ortho="Differential XS" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3_223K_SDY_air.xs" amffile="" />
+        <cross_section sym="Ring" ortho="Differential XS" subtract="" subtract_flag="false" cstype="ring" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/Ring_QDOAScalc_HighResSAO2010_Norm.xs" amffile="" />
+        <cross_section sym="HCHO" ortho="Differential XS" subtract="" subtract_flag="false" cstype="std" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="0.000e+00" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/hcho_297K_Meller.xs" amffile="" />
+        <cross_section sym="O3_293k" ortho="O3" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/o3_293K_SDY_air.xs" amffile="" />
+        <cross_section sym="O3D" ortho="O3" subtract="" subtract_flag="false" cstype="io" amftype="none" corrtype="none" molecular_xs="" fit="true" filter="true" cstrncc="false" ccfit="true" icc="0.000" dcc="0.001" ccio="1.000e+20" ccmin="0.000e+00" ccmax="0.000e+00" csfile="str7_need_to_changeCINDI-2_xs/O3D_Brion_vac-243-218K.xs" amffile="" />
+      </cross_sections>
+      <linear xpoly="5" xbase="2" xfit="true" xerr="false" offpoly="none" offfit="false" offerr="false" offizero="false" />
+      <nonlinear solfit="false" solinit="0.000" soldelt="0.001" solfstr="false" solestr="false"
+                 o0fit="true" o0init="0.000" o0delt="0.001" o0fstr="true" o0estr="false"
+                 o1fit="true" o1init="0.000" o1delt="0.001" o1fstr="true" o1estr="false"
+                 o2fit="false" o2init="0.000" o2delt="0.001" o2fstr="false" o2estr="false"
+                 comfit="false" cominit="0.000" comdelt="0.001" comstr="false" comestr="false"
+                 u1fit="false" u1init="0.000" u1delt="0.001" u1str="false" u1estr="false"
+                 u2fit="false" u2init="0.000" u2delt="0.001" u2str="false" u2estr="false"
+                 resolfit="false" resolinit="0.000" resoldelt="0.001" resolstr="false" resolestr="false"
+                 comfile=""
+                 u1file=""
+                 u2file=""
+                 ramfile="" />
+      <shift_stretches>
+        <shift_stretch shfit="true"  stfit="1st" shstr="true" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="Spectrum" />
+        </shift_stretch>
+        <shift_stretch shfit="false"  stfit="none" shstr="false" ststr="false" errstr="false" shini="0.000e+00" stini="0.000e+00" stini2="0.000e+00" shdel="1.0000e-03" stdel="1.0000e-03" stdel2="1.0000e-03" shmin="0.000e+00" shmax="0.000e+00" >
+          <symbol name="SO2" />
+          <symbol name="NO2" />
+          <symbol name="O3" />
+          <symbol name="Ring" />
+          <symbol name="HCHO" />
+          <symbol name="O3_293k" />
+        </shift_stretch>
+      </shift_stretches>
+      <gaps>
+      </gaps>
+      <outputs>
+        <output sym="SO2" amf="false" scol="true" serr="true" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="NO2" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="Ring" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="HCHO" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3_293k" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+        <output sym="O3D" amf="false" scol="false" serr="false" sfact="1.000" rescol="0.000000e+00" vcol="false" verr="false" vfact="1.000" />
+      </outputs>
+    </analysis_window>
+    <raw_spectra>
+      <!-- Disable file, folder and directory items with the disable set equal to "true". -->
+      <!--  The default is enabled.                                                       -->
+      <directory name="D:/softwares/QDOAS/2/UV/20180415" filters="" recursive="false" />
+    </raw_spectra>
+  </project>
+</qdoas>
