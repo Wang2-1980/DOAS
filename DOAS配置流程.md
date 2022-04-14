@@ -1,5 +1,40 @@
 ## 配置流程
 
+Header: Content-Type=text/html;charset=utf-8
+Header: X-Commonmarker-Version=0.23.4
+Header: Access-Control-Expose-Headers=ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+Header: X-Frame-Options=deny
+Header: X-Content-Type-Options=nosniff
+Header: Content-Security-Policy=default-src 'none'
+Header: X-Ratelimit-Reset=1649940173
+Header: Access-Control-Allow-Origin=*
+Header: Strict-Transport-Security=max-age=31536000; includeSubdomains; preload
+Header: X-Xss-Protection=0
+Header: Referrer-Policy=origin-when-cross-origin, strict-origin-when-cross-origin
+Header: Server=GitHub.com
+Header: X-Ratelimit-Limit=60
+Header: X-Ratelimit-Remaining=59
+Header: X-Ratelimit-Resource=core
+Header: Vary=Accept-Encoding, Accept, X-Requested-With
+Header: X-Github-Request-Id=EC69:6D4C:2A5206:2E80DB:625808BD
+Header: Date=Thu, 14 Apr 2022 11:42:53 GMT
+Header: X-Ratelimit-Used=1
+
+* [配置流程](#配置流程)
+  * [1 光谱准备和格式转换](#1-光谱准备和格式转换)
+    * [1\.1 光谱数据获取](#11-光谱数据获取)
+    * [1\.2 光谱转格式](#12-光谱转格式)
+  * [2 QDOAS基本配置](#2-qdoas基本配置)
+    * [2\.1 地点配置](#21-地点配置)
+    * [2\.2 仪器校准文件格式转换和配置](#22-仪器校准文件格式转换和配置)
+    * [2\.3 标准谱配置](#23-标准谱配置)
+    * [2\.4 基本配置文件准备](#24-基本配置文件准备)
+    * [2\.5 文件对应配置](#25-文件对应配置)
+  * [3 光谱生成和处理](#3-光谱生成和处理)
+    * [3\.1 光谱生成](#31-光谱生成)
+    * [3\.2 gap去除](#32-gap去除)
+    * [3\.3 校准文件的替换](#33-校准文件的替换)
+
 ### 1 光谱准备和格式转换
 
 #### 1.1 光谱数据获取
@@ -75,6 +110,8 @@ File-Open打开qdoas_daily_all.xml文件；
 右击Raw Spectra，选择insert directory，选择光谱文件对应的路径，注意勾选insert sub-directories；
 
 右击Raw Spectra，选择Browse Spectra，再次选择Run Analysis，并且点击上方的运行按钮，生成图像，注意有的图片有gap尖刺，需要进行处理去除；
+
+？？？怎么放大图像
 
 #### 3.2 gap去除
 
