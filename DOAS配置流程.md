@@ -1,25 +1,3 @@
-## 配置流程
-
-Header: Content-Type=text/html;charset=utf-8
-Header: X-Commonmarker-Version=0.23.4
-Header: Access-Control-Expose-Headers=ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
-Header: X-Frame-Options=deny
-Header: X-Content-Type-Options=nosniff
-Header: Content-Security-Policy=default-src 'none'
-Header: X-Ratelimit-Reset=1649940173
-Header: Access-Control-Allow-Origin=*
-Header: Strict-Transport-Security=max-age=31536000; includeSubdomains; preload
-Header: X-Xss-Protection=0
-Header: Referrer-Policy=origin-when-cross-origin, strict-origin-when-cross-origin
-Header: Server=GitHub.com
-Header: X-Ratelimit-Limit=60
-Header: X-Ratelimit-Remaining=59
-Header: X-Ratelimit-Resource=core
-Header: Vary=Accept-Encoding, Accept, X-Requested-With
-Header: X-Github-Request-Id=EC69:6D4C:2A5206:2E80DB:625808BD
-Header: Date=Thu, 14 Apr 2022 11:42:53 GMT
-Header: X-Ratelimit-Used=1
-
 * [配置流程](#配置流程)
   * [1 光谱准备和格式转换](#1-光谱准备和格式转换)
     * [1\.1 光谱数据获取](#11-光谱数据获取)
@@ -34,6 +12,8 @@ Header: X-Ratelimit-Used=1
     * [3\.1 光谱生成](#31-光谱生成)
     * [3\.2 gap去除](#32-gap去除)
     * [3\.3 校准文件的替换](#33-校准文件的替换)
+  
+## 配置流程
 
 ### 1 光谱准备和格式转换
 
